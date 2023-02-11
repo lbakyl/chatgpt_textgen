@@ -1,6 +1,34 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## About This Project
+
+Choose between a variety of texts that you would like the ChatGPT bot to type out after you define some essential values. This includes:
+1. Love letter
+2. Job advert
+3. Cover to a job application
+4. Study application rationale
+5. Last Will & Testament
+6. Pre-marital agreement
+You can set a tone of voice as well the length of the text and copy paste the automatically generated text to clipboard.
+Please, be aware that the OpenAI leadership may start charging for longer texts or require payment for more enhanced bots in the future, so it is good to monitor the current situation.
+
+## Technologies:
+
+The app uses modern technologies and best practices, such as:
+1. ReactJS
+2. Tailwind CSS
+3. Asynchronous API communication
+4. Best practices frameworks for front-end functionality like antd
+
+## Pre-requisities:
+
+1. An API key in OpenAI - go to https://platform.openai.com/account/api-keys to register a key and place it in an .env file that contains: OPENAI_API_KEY = XXXXX
+2. ReactJS version 18.2.0 or newer
+3. NextJS version 13.1.3 or newer
+4. antd library version 5.1.7 or newer - see https://ant.design/
+5. TailWindCSS - see https://tailwindcss.com/docs/guides/create-react-app for detailed instructions when setting up a React app
+
+## Launching your React-based server locally:
 
 First, run the development server:
 
@@ -13,26 +41,3 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

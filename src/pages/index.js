@@ -1,8 +1,7 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
+//import { Inter } from "@next/font/google";
 import React, { useState } from "react";
 import BtnModal from "@/components/Modal"
-import confirm from "@/components/Modal2"
 import Job_Advert from "@/components/Job_Advert";
 
 //import classNames from 'classnames'; // Slider for the Hamburger menu, see https://www.patrykgulas.com/hamburgers

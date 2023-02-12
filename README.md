@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## About This Project
 
+See a screenshot here: https://ibb.co/V2S0t2M
+
 Choose between a variety of texts that you would like the ChatGPT bot to type out after you define some essential values. This includes:
 1. Love letter
 2. Job advert
@@ -12,13 +14,14 @@ Choose between a variety of texts that you would like the ChatGPT bot to type ou
 You can set a tone of voice as well the length of the text and copy paste the automatically generated text to clipboard.
 Please, be aware that the OpenAI leadership may start charging for longer texts or require payment for more enhanced bots in the future, so it is good to monitor the current situation.
 
-## Technologies:
 
-The app uses modern technologies and best practices, such as:
+## Technologies used:
+
+The app uses modern frameworks and libraries that leverage best practices, such as:
 1. ReactJS
 2. Tailwind CSS
 3. Asynchronous API communication
-4. Best practices frameworks for front-end functionality like antd
+4. antd
 
 ## Pre-requisities:
 

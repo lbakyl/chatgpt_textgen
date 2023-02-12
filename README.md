@@ -3,6 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## About This Project
 
 See a screenshot here: https://ibb.co/V2S0t2M
+
 Choose between a variety of texts that you would like the ChatGPT bot to type out after you define some essential values. This includes:
 1. Love letter
 2. Job advert

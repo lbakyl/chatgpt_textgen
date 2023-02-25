@@ -3,6 +3,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import BtnModal from "@/components/Modal"
 import Job_Advert from "@/components/Job_Advert";
+import Love_Letter from "@/components/Love_Letter";
 
 //import classNames from 'classnames'; // Slider for the Hamburger menu, see https://www.patrykgulas.com/hamburgers
 // import { Main } from "next/document";
@@ -109,14 +110,15 @@ const handleCancel = () =>{
           </div>
           
           <div>Job App. Cover Letter</div>
-          <div>Study application rationale</div>
+          <div>Personal statement for a study application</div>
           <div>Last Will & Testament</div>
-          <div>Pre-marital Agreement</div>
+          <div>Prenuptial Agreement</div>
      
         </aside>
 
         <div className="bg-sky-500 md:w-3/3 lg:w-3/4 px-3 py-0 flex">
           { IsJobAdvertSelected && <Job_Advert/> }
+          { IsLoveLetterSelected && <Love_Letter/> }
         </div>
 
 

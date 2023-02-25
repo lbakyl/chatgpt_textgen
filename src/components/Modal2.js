@@ -13,7 +13,7 @@ function confirm({ logout }) {
         </div>
       ),
       onOk: () => {
-        // your logout function i.e this.props.logout()
+        // your  function
       },
     });
   }

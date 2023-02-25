@@ -1,41 +1,43 @@
 import React, { useState } from "react";
 
 export default function LoveLetter() {
-  const [jobDescription, setJobDescription] = useState("");
+  const [loveLetter, setLoveLetter] = useState("");
 
-  const [jobTitle, setJobTitle] = useState("");
-  const [industry, setIndustry] = useState("");
-  const [keyWords, setKeyWords] = useState("");
-  const [tone, setTone] = useState("");
-  const [numWords, setNumWords] = useState("");
+  const [loveName, setLoveName] = useState("");
+  const [loveMetWhen, setLoveMetWhen] = useState("");
+  const [loveMetWhere, setLoveMetWhere] = useState("");
+  const [loveAbout, setLoveAbout] = useState("");
+  const [loveKeyWords, setLoveKeyWords] = useState("");
+  const [loveNumWords, setLoveNumWords] = useState("");
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(jobDescription);
+    navigator.clipboard.writeText(loveLetter);
     setIsCopied(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsGenerating(true);
-    const res = await fetch("/api/returnJobDescription", {
+    const res = await fetch("/api/returnLoveLetter", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        jobTitle,
-        industry,
-        keyWords,
-        tone,
-        numWords,
+        loveName,
+        loveMetWhen,
+        loveMetWhere,
+        loveAbout,
+        loveKeyWords,
+        loveNumWords,
       }),
     });
     setIsGenerating(false);
     const data = await res.json();
-    setJobDescription(data.jobDescription.trim());
+    setLoveLetter(data.loveLetter.trim());
   };
 
   return (
@@ -44,45 +46,77 @@ export default function LoveLetter() {
         <div className="">
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="flex flex-col">
-              <label className="sr-only" htmlFor="jobTitle">
-                Job Title
+              <label className="sr-only" htmlFor="loveLetter">
+                Love Letter
               </label>
               <input
                 type="text"
                 className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
-                name="jobTitle"
-                placeholder="Job Title"
-                id="jobTitle"
-                value={jobTitle}
-                onChange={(e) => setJobTitle(e.target.value)}
+                name="loveName"
+                placeholder="Name of your crush"
+                id="loveName"
+                value={loveName}
+                onChange={(e) => setLoveName(e.target.value)}
                 required
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="industry" className="sr-only">
-                Industry
+              <label htmlFor="met where" className="sr-only">
+                Where did you meet?
               </label>
               <input
-                value={industry}
-                onChange={(e) => setIndustry(e.target.value)}
+                value={loveMetWhere}
+                onChange={(e) => setLoveMetWhere(e.target.value)}
+                required
                 className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
-                placeholder="Industry (Optional)"
+                placeholder="Where did you meet?"
                 type="text"
-                name="industry"
-                id="industry"
+                name="metWhere"
+                id="metWhere"
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="keywords" className="sr-only">
-                Keywords for AI (Optional)
+              <label htmlFor="met when" className="sr-only">
+                When did you meet?
+              </label>
+              <input
+                value={loveMetWhen}
+                onChange={(e) => setLoveMetWhen(e.target.value)}
+                required
+                className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
+                placeholder="When did you meet?"
+                type="text"
+                name="metWhen"
+                id="metWhen"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="Love About" className="sr-only">
+                What do you love about this person?
               </label>
               <textarea
-                rows={7}
-                value={keyWords}
-                onChange={(e) => setKeyWords(e.target.value)}
-                name="keyWords"
-                id="keyWords"
-                placeholder="Keywords for AI (Optional)"
+                rows={3}
+                value={loveAbout}
+                onChange={(e) => setLoveAbout(e.target.value)}
+                required
+                name="loveAbout"
+                id="loveAbout"                
+                placeholder="List of things you love about the person"
+                className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="love keywords" className="sr-only">
+                Anything else you would like to express.
+              </label>
+              <textarea
+                rows={3}
+                value={loveKeyWords}
+                onChange={(e) => setLoveKeyWords(e.target.value)}
+                name="loveKeyWords"
+                id="loveKeyWords"
+                placeholder="Additional comments / keywords"
                 className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
               />
             </div>
@@ -91,27 +125,15 @@ export default function LoveLetter() {
                 Tone
               </label>
 
-              <select
-                value={tone}
-                onChange={(e) => setTone(e.target.value)}
-                className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
-                name="tone"
-                id="tone"
-              >
-                <option value="default">Select Tone (Optional)</option>
-                <option value="casual">Casual</option>
-                <option value="friendly">Friendly</option>
-                <option value="professional">Professional</option>
-                <option value="formal">Formal</option>
-              </select>
+    
             </div>
             <div className="flex flex-col">
               <label htmlFor="words" className="sr-only">
                 Words (Optional)
               </label>
               <input
-                value={numWords}
-                onChange={(e) => setNumWords(e.target.value)}
+                value={loveNumWords}
+                onChange={(e) => setLoveNumWords(e.target.value)}
                 type="number"
                 className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
                 placeholder="Number Of Words - Default 200 (Optional)"
@@ -123,14 +145,14 @@ export default function LoveLetter() {
             <button
               className={`bg-orange-600 w-full hover:bg-orange-700 text-white font-bold mt-6 py-2 px-4 rounded
                 ${
-                  isGenerating || jobTitle === ""
+                  isGenerating || loveName === ""
                     ? "cursor-not-allowed opacity-50"
                     : ""
                 }`}
               type="submit"
-              disabled={isGenerating || jobTitle === ""}
+              disabled={isGenerating || loveName === ""}
             >
-              {isGenerating ? "Generating..." : "Generate Job Description"}
+              {isGenerating ? "Generating..." : "Generate Love Letter"}
             </button>
           </form>
         </div>
@@ -141,23 +163,23 @@ export default function LoveLetter() {
             </label>
             <textarea
               rows={
-                jobDescription === ""
+                loveLetter === ""
                   ? 7
-                  : jobDescription.split("\n").length + 12
+                  : loveLetter.split("\n").length + 12
               }
               name="output"
-              value={jobDescription}
-              onChange={(e) => setJobDescription(e.target.value)}
-              disabled={jobDescription === ""}
+              value={loveLetter}
+              onChange={(e) => setloveLetter(e.target.value)}
+              disabled={loveLetter === ""}
               id="output"
-              placeholder="AI Generated Job Description"
+              placeholder="AI Generated Love Letter"
               className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
             />
             <button
               onClick={handleCopy}
               className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
               type="submit"
-              disabled={jobDescription === ""}
+              disabled={loveLetter === ""}
             >
               {isCopied ? "Copied" : "Copy to Clipboard"}
             </button>
